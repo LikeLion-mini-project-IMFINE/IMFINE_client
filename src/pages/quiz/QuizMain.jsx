@@ -5,15 +5,16 @@ import homeIcon from "../../assets/images/homeIcon.png";
 import correctIcon from "../../assets/images/correctIcon.png";
 import wrongIcon from "../../assets/images/wrongIcon.png";
 
-const Container = styled.div`
+export const Container = styled.div`
   width: 100%;
   min-width: 1194px;
-  height: 100vh;
+  height: 100%;
   min-height: 834px;
   background-color: #f6f6f6;
 `;
 
-const Header = styled.div`
+export const Header = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -69,21 +70,16 @@ const Comment = styled.div`
 
 const Question = styled.div`
   margin: 50px auto;
-  display: flex;
-  width: 1070px;
+  width: 800px;
   height: auto;
   padding: 20px 120px 20px 120px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
   border-radius: 50px;
   background: #fff;
 
   p {
     color: #494949;
     font-family: Pretendard-Bold;
-    font-size: 45px;
+    font-size: 40px;
     font-style: normal;
     font-weight: 800;
     line-height: 70px;
@@ -105,6 +101,10 @@ const AnswerBtnWrapper = styled.div`
     border: none;
     cursor: pointer;
   }
+
+  img {
+    width: 150px;
+  }
 `;
 
 function QuizMain() {
@@ -112,7 +112,12 @@ function QuizMain() {
 
   const QuizList = [
     "물가는 사람들이 물건을 살 때 내는 돈의 평균적인 가격을 말한다.",
+    "물가가 많이 오르면 사람들이 물건을 더 많이 사게 된다.",
+    "금리가 낮아지면 돈을 빌릴 때 내야 하는 돈도 줄어든다.",
+    "한국은행은 물가가 많이 오르면 금리를 더 낮추려고 한다.",
+    "이번 달 물가는 작년 같은 달에 비해 크게 오르지 않았다.",
   ];
+
   return (
     <Container>
       <Header>
