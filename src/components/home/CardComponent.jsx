@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../../styles/home/CardComponent.module.css";
 
-const CardComponent = ({ header, title, subtitle }) => {
+const CardComponent = ({ header, title, subtitle, onClick }) => {
   const getBackgroundColor = (header) => {
     switch (header) {
       case "기초개념":
@@ -19,6 +19,7 @@ const CardComponent = ({ header, title, subtitle }) => {
     <div
       className={styles.card}
       style={{ backgroundColor: getBackgroundColor(header) }}
+      onClick={onClick}
     >
       <div className={styles.header}>{header || "기본 헤더"}</div>
       <div className={styles.content}>
