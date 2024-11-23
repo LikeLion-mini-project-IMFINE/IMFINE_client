@@ -1,0 +1,230 @@
+.newsContainer {
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  box-shadow: 0px 0px 10px 0px rgba(73, 73, 73, 0.15);
+  padding: 10px 20px;
+  margin-bottom: 50px;
+}
+
+.headerLeft,
+.headerRight {
+  display: flex;
+  align-items: center;
+}
+
+.headerTitle {
+  font-family: "yg-jalnan";
+  font-weight: 400;
+  font-size: 23px;
+  text-align: center;
+  flex-grow: 1;
+  color: #494949;
+}
+
+.icon {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.icon:hover {
+  transform: scale(1.1);
+}
+.mainContent {
+  /* text-align: center; */
+  padding: 0 94px;
+}
+
+.mainContent label {
+  color: #494949;
+  font-family: Pretendard;
+  font-size: 45px;
+  font-weight: 800;
+  line-height: 70px;
+  letter-spacing: 1.35px;
+}
+
+.subheading {
+  color: #494949;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  padding: 15px 0;
+  letter-spacing: 0.6px;
+}
+
+.keyTerms {
+  margin-bottom: 60px;
+}
+
+.keyTerms h3 {
+  display: flex;
+  height: 80px;
+  padding: 0 30px;
+  align-items: center;
+  gap: 20px;
+  background: #3986ff;
+}
+
+.keyTerms ul {
+  margin-top: 41px;
+}
+
+.keyTerms li {
+  color: #494949;
+  font-family: Pretendard;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0.9px;
+}
+
+.keyTerms strong {
+  margin-bottom: 13px;
+}
+
+.keyTerms p {
+  margin-bottom: 30px;
+  color: #494949;
+  font-family: Pretendard;
+  font-size: 30px;
+  font-style: normal;
+  line-height: 40px;
+  letter-spacing: 0.9px;
+}
+
+.newsSummary h3 {
+  display: flex;
+  height: 80px;
+  padding: 0 30px;
+  align-items: center;
+  gap: 20px;
+  background: #3986ff;
+}
+
+.newsSummary p {
+  padding: 30px;
+  color: #494949;
+  font-family: Pretendard;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 0.9px;
+}
+
+.newsDetails {
+  margin-bottom: 20px;
+}
+
+.newsDetails p {
+  border-radius: 30px;
+  background: #f5f5f5;
+  padding: 50px;
+  color: #494949;
+  font-family: Pretendard;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 45px;
+  letter-spacing: 0.9px;
+}
+
+.topheader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 70px;
+}
+
+.footer {
+  gap: 20px;
+  padding: 0 94px;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.gobtn {
+  padding: 10px 30px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 25px;
+  background: #3986ff;
+  color: #fff;
+  font-family: NanumSquareRound;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 40px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.listbtn {
+  display: flex;
+  height: 71px;
+  padding: 0px 51px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 20px;
+  border: 3px solid #3986ff;
+  background: #fff;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  color: #3986ff;
+  font-family: NanumSquareRound;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 40px; /* 133.333% */
+}
+
+.quizbtn {
+  display: flex;
+  height: 71px;
+  padding: 0px 51px;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+  border-radius: 20px;
+  background: #3986ff;
+  color: #fff;
+  font-family: NanumSquareRound;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 40px; /* 133.333% */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #005bb5;
+  transform: scale(1.05);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 600px) {
+  .headerTitle {
+    font-size: 18px;
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .btn {
+    flex: 1;
+    margin: 5px;
+    text-align: center;
+  }
+}
