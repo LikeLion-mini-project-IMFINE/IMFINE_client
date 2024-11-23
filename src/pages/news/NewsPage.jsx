@@ -5,11 +5,10 @@ import homeIcon from "../../assets/images/homeIcon.png";
 import bookmarkIcon from "../../assets/images/bookmarkIcon.png";
 
 function NewsPage() {
-  const [newsData, setNewsData] = useState(null); // 뉴스 데이터를 저장할 상태
-  const [loading, setLoading] = useState(true); // 로딩 상태
-  const [error, setError] = useState(null); // 에러 상태
+  const [newsData, setNewsData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  // 더미 데이터
   const dummyNewsData = {
     title: "10월 물가 3년 9개월 만에 최저... 추가 금리인하 '촉각'",
     date: "2024.11.05",
@@ -33,22 +32,16 @@ function NewsPage() {
   };
 
   useEffect(() => {
-    // 더미 데이터 사용
     const fetchNewsData = async () => {
       try {
         setLoading(true);
 
-        // 실제 API 호출 부분을 주석 처리하고 더미 데이터로 대체
-        // const response = await axios.get("/api/news/latest"); // 백엔드 API 엔드포인트
-        // setNewsData(response.data);
-
-        // 더미 데이터를 사용하는 부분
         setNewsData(dummyNewsData);
       } catch (error) {
         console.error("Failed to fetch news data:", error);
         setError("뉴스 데이터를 가져오는 중 오류가 발생했습니다.");
       } finally {
-        setLoading(false); // 로딩 종료
+        setLoading(false);
       }
     };
 
