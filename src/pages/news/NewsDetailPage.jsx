@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate, useParams } from "react-router-dom";
 import styles from "../../styles/news/NewsPage.module.css";
 import homeIcon from "../../assets/images/homeIcon.png";
 import bookmarkIcon from "../../assets/images/bookmarkIcon.png";
-import { useNavigate } from "react-router-dom";
 
-function NewsPage() {
-  const userId = 1;
+function NewsDetailPage() {
+  const { newsId } = useParams(); // URL에서 newsId 추출
   const navigate = useNavigate();
   const [newsData, setNewsData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -15,48 +15,35 @@ function NewsPage() {
   useEffect(() => {
     const fetchNewsData = async () => {
       try {
+        console.log(`Fetching data for newsId: ${newsId}`); // 디버깅용 로그
         const response = await axios.get(
-          `http://localhost:8080/news/today?userId=${userId}`
+          `http://localhost:8080/news/${newsId}`
         );
-        console.log("Response Data:", response.data);
+        console.log("Response Data:", response.data); // 응답 데이터 로그
         setNewsData(response.data);
         setLoading(false);
       } catch (error) {
-        console.error("Error Response:", error.response);
-        setError(
-          error.response
-            ? `Error ${error.response.status}: ${error.response.data.message}`
-            : "뉴스 데이터를 가져오는 중 오류가 발생했습니다."
-        );
+        console.error("Error Response:", error.response); // 오류 로그
+        setError("뉴스 상세 정보를 가져오는 중 오류가 발생했습니다.");
         setLoading(false);
       }
     };
 
-    fetchNewsData();
-  }, [userId]);
+    if (newsId) {
+      fetchNewsData(); // newsId가 있을 경우에만 데이터를 가져옵니다.
+    }
+  }, [newsId]); // newsId가 변경될 때마다 요청
 
   if (loading) {
     return <div className={styles.loading}>로딩 중...</div>;
   }
 
   if (error) {
-    if (error.includes("500")) {
-      return (
-        <div className={styles.errorWithDesign}>
-          <h2>이번 주의 뉴스는 전부 다 읽으셨네요!</h2>
-          <p>
-            더 많은 뉴스는 다음 주에 업데이트됩니다. 기다려주셔서 감사합니다!
-          </p>
-          <button
-            className={styles.listbtn}
-            onClick={() => window.location.replace("/news/list")}
-          >
-            다른 뉴스 보기
-          </button>
-        </div>
-      );
-    }
     return <div className={styles.error}>{error}</div>;
+  }
+
+  if (!newsData) {
+    return <div className={styles.error}>뉴스 데이터가 없습니다.</div>;
   }
 
   return (
@@ -127,19 +114,9 @@ function NewsPage() {
         >
           목록보기
         </button>
-        <button
-          className={styles.quizbtn}
-          onClick={() =>
-            newsData?.quizzes?.length > 0
-              ? window.location.replace(`/quiz/${newsData.quizzes[0]?.id}`)
-              : alert("퀴즈 정보가 없습니다.")
-          }
-        >
-          알쏭달쏭 경제 퀴즈 풀기
-        </button>
       </footer>
     </div>
   );
 }
 
-export default NewsPage;
+export default NewsDetailPage;

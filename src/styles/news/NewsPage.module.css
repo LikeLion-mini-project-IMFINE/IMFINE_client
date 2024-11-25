@@ -42,6 +42,9 @@
   padding: 0 94px;
 }
 
+.words {
+  margin-bottom: 8px !important;
+}
 .mainContent label {
   color: #494949;
   font-family: Pretendard;
@@ -151,7 +154,7 @@
   display: flex;
   justify-content: right;
   align-items: center;
-  margin-top: 20px;
+  margin: 50px 0;
 }
 
 .gobtn {
@@ -184,7 +187,7 @@
   font-family: NanumSquareRound;
   font-size: 30px;
   font-weight: 800;
-  line-height: 40px; /* 133.333% */
+  line-height: 40px;
 }
 
 .quizbtn {
@@ -202,7 +205,7 @@
   font-family: NanumSquareRound;
   font-size: 30px;
   font-weight: 800;
-  line-height: 40px; /* 133.333% */
+  line-height: 40px;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
@@ -211,7 +214,6 @@
   transform: scale(1.05);
 }
 
-/* 반응형 디자인 */
 @media (max-width: 600px) {
   .headerTitle {
     font-size: 18px;
@@ -227,4 +229,10 @@
     margin: 5px;
     text-align: center;
   }
+}
+
+.keyTerms li p span {
+  margin: 0;
+  font-weight: normal;
+  color: inherit;
 }
