@@ -1,0 +1,126 @@
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  box-shadow: 0px 0px 10px 0px rgba(73, 73, 73, 0.15);
+  padding: 10px 20px;
+  margin-bottom: 50px;
+}
+
+.headerTitle {
+  font-family: "yg-jalnan";
+  font-size: 23px;
+  font-weight: 400;
+  color: #494949;
+}
+
+.newsItem {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px 25px;
+  margin-bottom: 15px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.newsItem:hover {
+  transform: scale(1.06);
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #3986ff;
+  text-decoration: none;
+}
+
+.date {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+.summary {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #494949;
+}
+
+.keyTerms {
+  margin-top: 40px;
+}
+
+.keyTerms h3 {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  background: #3986ff;
+  color: #fff;
+  padding: 0 20px;
+  font-size: 24px;
+}
+
+.keyTerms li {
+  font-size: 20px;
+  color: #494949;
+}
+
+.keyTerms li strong {
+  font-weight: 700;
+  margin-right: 5px;
+}
+
+.keyTerms li p {
+  margin-top: 10px;
+  color: #494949;
+  font-size: 18px;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 800;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.gobtn {
+  background: #3986ff;
+  color: #fff;
+}
+
+.gobtn:hover {
+  background-color: #005bb5;
+  transform: scale(1.05);
+}
+
+.listbtn {
+  background: #fff;
+  color: #3986ff;
+  border: 2px solid #3986ff;
+}
+
+.listbtn:hover {
+  background: #f0f8ff;
+  transform: scale(1.05);
+}
+
+.contentcontainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
