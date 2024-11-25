@@ -15,6 +15,11 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin: 10px;
   text-align: left;
+  transition: transform 0.2s ease;
+}
+
+.footerCard:hover {
+  transform: scale(1.06);
 }
 
 h3 {

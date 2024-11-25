@@ -9,6 +9,7 @@ const FooterContainer = () => {
         title="알쏭달쏭 경제 돋보기"
         description="지난주에 어떤 경제 이슈가 있었을까?"
         bgColor="#FF4C9E"
+        link="/news"
       />
       <FooterCard
         title="척척박사 경제 사전"
