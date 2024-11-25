@@ -3,10 +3,11 @@ import axios from "axios";
 import styles from "../../styles/news/NewsPage.module.css";
 import homeIcon from "../../assets/images/homeIcon.png";
 import bookmarkIcon from "../../assets/images/bookmarkIcon.png";
+import { useNavigate } from "react-router-dom";
 
 function NewsPage() {
   const userId = 1;
-
+  const navigate = useNavigate();
   const [newsData, setNewsData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -17,11 +18,11 @@ function NewsPage() {
         const response = await axios.get(
           `http://localhost:8080/news/today?userId=${userId}`
         );
-        console.log("Response Data:", response.data); // 응답 데이터 확인
+        console.log("Response Data:", response.data);
         setNewsData(response.data);
         setLoading(false);
       } catch (error) {
-        console.error("Error Response:", error.response); // 에러 응답 확인
+        console.error("Error Response:", error.response);
         setError(
           error.response
             ? `Error ${error.response.status}: ${error.response.data.message}`
@@ -62,7 +63,13 @@ function NewsPage() {
     <div className={styles.newsContainer}>
       <header className={styles.header}>
         <div className={styles.headerLeft}>
-          <img src={homeIcon} alt="홈 아이콘" className={styles.icon} />
+          <img
+            src={homeIcon}
+            alt="홈 아이콘"
+            className={styles.icon}
+            onClick={() => navigate("/")}
+            style={{ cursor: "pointer" }}
+          />
         </div>
         <h1 className={styles.headerTitle}>알쏭달쏭 경제 돋보기</h1>
         <div className={styles.headerRight}>
