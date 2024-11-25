@@ -10,8 +10,8 @@ function App() {
     <Routes>
       <Route path="/" element={<LandingPage />} />
       <Route path="/news" element={<NewsPage />} />
-      <Route path="/quiz" element={<QuizMain />} />
-      <Route path="/quiz/:answer" element={<QuizAnswer />} />
+      <Route path="/quiz/:newsId" element={<QuizMain />} />
+      <Route path="/quiz/:newsId/:answer" element={<QuizAnswer />} />
     </Routes>
   );
 }

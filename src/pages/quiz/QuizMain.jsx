@@ -1,9 +1,10 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import homeIcon from "../../assets/images/homeIcon.png";
 import correctIcon from "../../assets/images/correctIcon.png";
 import wrongIcon from "../../assets/images/wrongIcon.png";
+import axios from "axios";
 
 export const Container = styled.div`
   width: 100%;
@@ -109,15 +110,51 @@ const AnswerBtnWrapper = styled.div`
 
 function QuizMain() {
   const navigate = useNavigate();
+  const { newsId } = useParams();
 
-  const QuizList = [
-    "물가는 사람들이 물건을 살 때 내는 돈의 평균적인 가격을 말한다.",
-    "물가가 많이 오르면 사람들이 물건을 더 많이 사게 된다.",
-    "금리가 낮아지면 돈을 빌릴 때 내야 하는 돈도 줄어든다.",
-    "한국은행은 물가가 많이 오르면 금리를 더 낮추려고 한다.",
-    "이번 달 물가는 작년 같은 달에 비해 크게 오르지 않았다.",
-  ];
+  const [quiz, setQuiz] = useState([]);
 
+  const getQuiz = async () => {
+    try {
+      const response = await axios.get(`http://localhost:8080/quiz/${newsId}`);
+      setQuiz(response.data);
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    getQuiz();
+  }, []);
+
+  const answerQuiz = async (answer) => {
+    try {
+      const response = await axios.post(`http://localhost:8080/answer`, {
+        userId: "1",
+        quizId: `${quiz.id}`,
+        answer: answer,
+      });
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
+  };
+
+  const handleCorrectBtn = async () => {
+    const response = await answerQuiz("true");
+    if (response) {
+      navigate(`/quiz/${newsId}/${response.isCorrect}`);
+    }
+  };
+
+  const handleWrongBtn = async () => {
+    const response = await answerQuiz("false");
+    if (response) {
+      navigate(`/quiz/${newsId}/${response.isCorrect}`);
+    }
+  };
   return (
     <Container>
       <Header>
@@ -130,13 +167,13 @@ function QuizMain() {
         <p>알쏭달쏭 ~ 뭐가 정답일까 ~ ?</p>
       </Comment>
       <Question>
-        <p>{QuizList[0]}</p>
+        <p>{quiz && quiz.question}</p>
       </Question>
       <AnswerBtnWrapper>
-        <button>
+        <button onClick={handleCorrectBtn}>
           <img src={correctIcon} alt="correctIcon" />
         </button>
-        <button>
+        <button onClick={handleWrongBtn}>
           <img src={wrongIcon} alt="wrongIcon" />
         </button>
       </AnswerBtnWrapper>
