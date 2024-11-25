@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import styles from "../../styles/news/NewsList.module.css";
+import homeIcon from "../../assets/images/homeIcon.png";
+import bookmarkIcon from "../../assets/images/bookmarkIcon.png";
+import { useNavigate } from "react-router-dom";
 
 const NewsList = () => {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -26,50 +31,51 @@ const NewsList = () => {
   }, []);
 
   if (loading) {
-    return <p style={{ textAlign: "center" }}>뉴스를 불러오는 중...</p>;
+    return <p className={styles.loading}>뉴스를 불러오는 중...</p>;
   }
 
   if (error) {
-    return (
-      <p style={{ color: "red", textAlign: "center" }}>에러 발생: {error}</p>
-    );
+    return <p className={styles.error}>에러 발생: {error}</p>;
   }
 
   return (
-    <div style={{ maxWidth: "800px", margin: "0 auto", padding: "20px" }}>
-      <h1 style={{ textAlign: "center", marginBottom: "20px" }}>뉴스 목록</h1>
-      {news.length === 0 ? (
-        <p style={{ textAlign: "center" }}>표시할 뉴스가 없습니다.</p>
-      ) : (
-        news.map((item) => (
-          <div
-            key={item.id}
-            style={{
-              border: "1px solid #ddd",
-              borderRadius: "8px",
-              padding: "15px",
-              marginBottom: "15px",
-              boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-            }}
-          >
-            <h2 style={{ fontSize: "18px", margin: "0 0 10px" }}>
-              <Link
-                to={`/news/${item.id}`}
-                style={{ textDecoration: "none", color: "black" }}
-              >
-                {item.title}
-              </Link>
-            </h2>
-            <p style={{ color: "#666", fontSize: "14px", margin: "0 0 10px" }}>
-              {item.date}
-            </p>
-            <p style={{ fontSize: "16px", lineHeight: "1.5", margin: "0" }}>
-              {item.summary}
-            </p>
-          </div>
-        ))
-      )}
-    </div>
+    <>
+      <header className={styles.header}>
+        <div className={styles.headerLeft}>
+          <img
+            src={homeIcon}
+            alt="홈 아이콘"
+            className={styles.icon}
+            onClick={() => navigate("/")}
+            style={{ cursor: "pointer" }}
+          />
+        </div>
+        <h1 className={styles.headerTitle}>알쏭달쏭 경제 돋보기</h1>
+        <div className={styles.headerRight}>
+          <img src={bookmarkIcon} alt="북마크 아이콘" className={styles.icon} />
+        </div>
+      </header>
+      <div className={styles.container}>
+        <h1 className={styles.headerTitle}>뉴스 목록</h1>
+        {news.length === 0 ? (
+          <p className={styles.loading}>표시할 뉴스가 없습니다.</p>
+        ) : (
+          news.map((item) => (
+            <div key={item.id} className={styles.newsItem}>
+              <h2 className={styles.title}>
+                <Link to={`/news/${item.id}`} className={styles.title}>
+                  {item.title}
+                </Link>
+              </h2>
+              <div className={styles.contentcontainer}>
+                <p className={styles.summary}>{item.summary}</p>
+                <p className={styles.date}>{item.date}</p>
+              </div>
+            </div>
+          ))
+        )}
+      </div>
+    </>
   );
 };
 

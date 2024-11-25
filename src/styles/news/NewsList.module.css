@@ -1,7 +1,7 @@
 .container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
+  margin: auto;
+  padding: 0 100px;
+  margin-bottom: 80px;
 }
 
 .header {
@@ -15,6 +15,7 @@
 }
 
 .headerTitle {
+  margin-bottom: 20px;
   font-family: "yg-jalnan";
   font-size: 23px;
   font-weight: 400;
@@ -32,6 +33,7 @@
 
 .newsItem:hover {
   transform: scale(1.06);
+  background-color: #f0f6ff;
 }
 
 .title {
@@ -123,4 +125,5 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 12px;
 }
