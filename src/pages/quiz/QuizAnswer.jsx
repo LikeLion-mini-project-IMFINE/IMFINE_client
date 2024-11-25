@@ -75,6 +75,7 @@ const QuizBtn = styled.button`
 
 function QuizAnswer() {
   const navigate = useNavigate();
+  const { newsId } = useParams();
   const { answer } = useParams();
   return (
     <Container>
@@ -98,8 +99,12 @@ function QuizAnswer() {
         )}
       </AnswerContainer>
       <BtnWrapper>
-        <ReadBtn>경제 돋보기 다시 읽기</ReadBtn>
-        <QuizBtn onClick={() => navigate(`/quiz`)}>경제 퀴즈 다시 풀기</QuizBtn>
+        <ReadBtn onClick={() => navigate(`/news/${newsId}`)}>
+          경제 돋보기 다시 읽기
+        </ReadBtn>
+        <QuizBtn onClick={() => navigate(`/quiz/${newsId}`)}>
+          경제 퀴즈 다시 풀기
+        </QuizBtn>
       </BtnWrapper>
     </Container>
   );
