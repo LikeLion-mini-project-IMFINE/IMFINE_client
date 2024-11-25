@@ -48,7 +48,7 @@ function NewsPage() {
           </p>
           <button
             className={styles.listbtn}
-            onClick={() => window.location.replace("/news-list")}
+            onClick={() => window.location.replace("/news/list")}
           >
             다른 뉴스 보기
           </button>
@@ -90,7 +90,10 @@ function NewsPage() {
             {newsData?.terms?.length > 0 ? (
               newsData.terms.map((term) => (
                 <li key={term.id}>
-                  <strong>{term.term}:</strong>
+                  <p className={styles.words}>
+                    <strong>{term.term}</strong>
+                    <span>란?</span>
+                  </p>
                   <p>{term.meaning}</p>
                 </li>
               ))
@@ -106,7 +109,6 @@ function NewsPage() {
         </section>
 
         <section className={styles.newsDetails}>
-          <h3>📜 뉴스 내용</h3>
           <p>{newsData?.content || "내용 정보가 없습니다."}</p>
         </section>
       </main>
@@ -114,7 +116,7 @@ function NewsPage() {
       <footer className={styles.footer}>
         <button
           className={styles.listbtn}
-          onClick={() => window.location.replace("/news-list")}
+          onClick={() => window.location.replace("/news/list")}
         >
           목록보기
         </button>
