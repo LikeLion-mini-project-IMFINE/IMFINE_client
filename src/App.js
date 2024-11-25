@@ -2,6 +2,7 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import LandingPage from "./pages/home/LandingPage";
 import NewsPage from "./pages/news/NewsPage";
+import NewList from "./pages/news/NewList";
 import QuizMain from "./pages/quiz/QuizMain";
 import QuizAnswer from "./pages/quiz/QuizAnswer";
 
@@ -10,6 +11,7 @@ function App() {
     <Routes>
       <Route path="/" element={<LandingPage />} />
       <Route path="/news" element={<NewsPage />} />
+      <Route path="/news/list" element={<NewList />} />
       <Route path="/quiz" element={<QuizMain />} />
       <Route path="/quiz/:answer" element={<QuizAnswer />} />
     </Routes>
