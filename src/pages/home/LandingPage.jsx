@@ -5,6 +5,8 @@ import FooterContainer from "./FooterContainer";
 import DateSelector from "../../components/home/DateSelector.jsx";
 import menuIcon from "../../assets/images/menuIcon.png";
 import notificationIcon from "../../assets/images/notificationIcon.png";
+import charEgg from "../../assets/images/charEgg.png";
+import light from "../../assets/images/light.png";
 import settingIcon from "../../assets/images/settingIcon.png";
 
 const LandingPage = () => {
@@ -42,10 +44,9 @@ const LandingPage = () => {
         />
         <div className={styles.rowcontainer}>
           <div className={styles.charactor}>
-            캐릭터 <br />
-            이미지 들어갈 곳 <br />
-            like 모ㅑ모ㅑ 키우기
+            <img src={light} alt="조명" className={styles.lightImage} />
           </div>
+
           <div className={styles.notes}>
             <div className={styles.tabs}>
               <button className={styles.tabButton}>개념노트</button>

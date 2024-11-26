@@ -102,18 +102,6 @@
   letter-spacing: 0.45px;
 }
 
-.charactor {
-  display: flex;
-  min-width: 258px !important;
-  padding: 10px 20px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 25px;
-  border-radius: 50px;
-  background: #fff;
-}
-
 .notes {
   display: flex;
   width: 803px;
@@ -154,4 +142,42 @@
 
 .purpleCard {
   background-color: #9370db;
+}
+
+.charactor {
+  position: relative;
+  background-image: url("../../assets/images/charEgg.png");
+  background-size: cover;
+  background-position: center;
+  min-width: 258px !important;
+  padding: 0 20px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.characterImage {
+  width: 100%;
+}
+
+.lightImage {
+  animation: swing 2s infinite ease-in-out;
+  transform-origin: top center;
+}
+
+@keyframes swing {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
 }
