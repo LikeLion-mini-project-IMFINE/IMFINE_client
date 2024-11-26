@@ -1,5 +1,7 @@
 import React from "react";
 import FooterCard from "../../components/home/FooterCard.jsx";
+import AdSlider from "../../components/home/AdSlider.jsx";
+
 import styles from "../../styles/home/FooterCard.module.css";
 
 const FooterContainer = () => {
@@ -16,11 +18,7 @@ const FooterContainer = () => {
         description="모르는 경제금융 단어가 있다면?"
         bgColor="#8F52E5"
       />
-      <FooterCard
-        title="변경되어야 함"
-        description="이미지 추가되면 변경"
-        bgColor="#8F52E5"
-      />
+      <AdSlider />
     </div>
   );
 };
