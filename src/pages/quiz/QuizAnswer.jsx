@@ -99,7 +99,7 @@ function QuizAnswer() {
         )}
       </AnswerContainer>
       <BtnWrapper>
-        <ReadBtn onClick={() => navigate(`/news/${newsId}`)}>
+        <ReadBtn onClick={() => navigate(`/news`)}>
           경제 돋보기 다시 읽기
         </ReadBtn>
         <QuizBtn onClick={() => navigate(`/quiz/${newsId}`)}>

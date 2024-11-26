@@ -9,7 +9,7 @@ import axios from "axios";
 export const Container = styled.div`
   width: 100%;
   min-width: 1194px;
-  height: 100%;
+  height: 100vh;
   min-height: 834px;
   background-color: #f6f6f6;
 `;
