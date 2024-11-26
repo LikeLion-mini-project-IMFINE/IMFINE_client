@@ -45,6 +45,11 @@ export const Header = styled.div`
     top: 25px;
     left: 46px;
     cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  button:hover {
+    transform: scale(1.06);
   }
 `;
 
@@ -101,6 +106,11 @@ const AnswerBtnWrapper = styled.div`
     background: none;
     border: none;
     cursor: pointer;
+    transition: transform 0.2 ease;
+  }
+
+  button:hover {
+    transform: scale(1.06);
   }
 
   img {
