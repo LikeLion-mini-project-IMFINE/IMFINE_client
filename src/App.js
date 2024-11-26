@@ -12,10 +12,10 @@ function App() {
     <Routes>
       <Route path="/" element={<LandingPage />} />
       <Route path="/news" element={<NewsPage />} />
+      <Route path="/quiz/:newsId" element={<QuizMain />} />
+      <Route path="/quiz/:newsId/:answer" element={<QuizAnswer />} />
       <Route path="/news/:newsId" element={<NewsDetailPage />} />
       <Route path="/news/list" element={<NewList />} />
-      <Route path="/quiz" element={<QuizMain />} />
-      <Route path="/quiz/:answer" element={<QuizAnswer />} />
     </Routes>
   );
 }

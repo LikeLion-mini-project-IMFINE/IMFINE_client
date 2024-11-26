@@ -131,7 +131,7 @@ function NewsPage() {
           className={styles.quizbtn}
           onClick={() =>
             newsData?.quizzes?.length > 0
-              ? window.location.replace(`/quiz/${newsData.quizzes[0]?.id}`)
+              ? window.location.replace(`/quiz/${newsData?.id}`)
               : alert("퀴즈 정보가 없습니다.")
           }
         >
