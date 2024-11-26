@@ -181,3 +181,21 @@
     transform: rotate(-5deg);
   }
 }
+
+.advertise {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 290px;
+  height: 78px;
+  padding: 61px 30px;
+  border-radius: 50px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  text-align: left;
+  transition: transform 0.2s ease;
+}
+
+.advertise:hover {
+  transform: scale(1.06);
+}
